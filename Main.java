@@ -3,13 +3,13 @@ public class Main {
     public static void main(String[] args) {
         
         Scanner input = new Scanner(System.in);
-        
+        int selection
         
         do {
            menuPrompt();
-           int selection = input.nextInt();
+           selection = input.nextInt();
         
-           Switch (selection){  //creates a loop statement based on the users input
+           switch (selection){  //creates a loop statement based on the users input
               
               case 1 :   System.out.println("Let's begin!");
                          break;
@@ -18,8 +18,8 @@ public class Main {
               case 0 :   System.out.println("Goodbye");
                          break;
               default:   System.out.println("Invalid input, please try again.");
-          
-           }while (selection != 0 || selection != 1);
+	   }
+           }while (selection != 0 || selection != 1); //should we do if/else-if statement instead of a switch?
            
             //This is where the bulk of the game will be played after choosing option 1
     }
