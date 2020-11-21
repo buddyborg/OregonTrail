@@ -1,3 +1,4 @@
+// class UserStats written by David Monsen
 public class UserStats{
       
    //fields
