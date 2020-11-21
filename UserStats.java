@@ -24,18 +24,21 @@ public class UserStats{
      }
    }
    
-   public void getMilesLeft(){   // //prints out the remaining miles left
+   public int getMilesLeft(){   // //prints out the remaining miles left
       int milesLeft = userStats[1];
-      System.out.printf("Miles Remaining: %d%n", milesLeft);
+      System.out.printf("Miles Remaining: %d%n", milesLeft); 
+      return milesLeft;
    }
    
-   public void getMilesJourneyed(){ // prints out the miles journeyed so far
+   public int getMilesJourneyed(){ // prints out the miles journeyed so far
       System.out.printf("Miles Journeyed: %d%n", milesJourneyed);
+      return milesJourneyed;
    }
      
-   public void getMembers(){  // prints out the remaining members
+   public int getMembers(){  // prints out the remaining members
       int members = userStats[0];       
       System.out.printf("Members Remaining: %d%n", members);
+      return members;
    }
    
    public void increaseMembers(){
