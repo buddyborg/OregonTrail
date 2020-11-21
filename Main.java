@@ -45,7 +45,7 @@ public class Main {
             }
       }
   
-    private static void menuPrompt(){  //creates a menu option for the user to choose from
+    private static void menuPrompt(){  //creates a menu option for the user to choose from written by David Monsen
         
        System.out.println("Welcome to the Oregon Trail for Beginners");
 	    System.out.println("1 .. Begin Journey");
@@ -54,14 +54,14 @@ public class Main {
 		 System.out.print("Your choice: ");
 	 }
     
-    private static void gameMenuPrompt(){
+    private static void gameMenuPrompt(){ // written by David Monsen
        System.out.println("1 .. continue journey");
        System.out.println("2 .. rest for the night");
        System.out.println("3 .. give up");
        System.out.print("Your choice: ");
     }
             
-    private static void instructions(){ //briefly explains the objective and the way to play the game.
+    private static void instructions(){ //briefly explains the objective and the way to play the game. Written by David Monsen
        System.out.println("This game begins with a small group of 10 individuals who are making their journey along the famous Oregon Trail.");
        System.out.println("When you begin the journey, you start travelling towards your destination at 10 miles each time option 1 is chosen.");
        System.out.println("If you would like to rest for the night, choose option 2, " + 
