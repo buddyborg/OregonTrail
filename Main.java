@@ -25,10 +25,10 @@ public class Main {
            
             //This is where the bulk of the game will be played after choosing option 1
             //OptionOneContinue(); //force the game to choose option one to begin.
-//            if (selection == 1){
+            //if (selection == 1){
             boolean exit = false;
                do{
-                  // TODO: Print out current game state (members alive)
+                  //Print out current game stats written by Paulina Cruz
                   System.out.printf("Members Remaining: %d%n", newUser.getMembers());
                   System.out.printf("Miles Journeyed: %d%n", newUser.getMilesJourneyed());
                   System.out.println();
@@ -45,8 +45,7 @@ public class Main {
                         OptionOneContinue.pick(newUser);
                                  break;
                      case 2   :
-                     // rest, gaining 1 member
-                     // 50% chance of running into bandits, and losing a member
+                        OptionTwoRest.optionTwo(newUser);
                                  break;
                      case 3   :
                         System.out.println("Goodbye");
@@ -88,6 +87,7 @@ public class Main {
        System.out.println("If you choose option 3, you choose to end the game and give up your journey.");
        System.out.println("There are many treacherous pitfalls and dangerous bandits along the trail that will take away group members as you progress on the trail.");
        System.out.println("It is wise to rest when there are few group members remaining to strengthen your odds of success."); 
+       System.out.println();
     }
     
 
