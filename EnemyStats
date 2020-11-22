@@ -1,0 +1,20 @@
+public class EnemyStats {
+   
+   private int enemy;
+   private int MAX_MEMBERS = 10;
+   
+   public void enemyAttack(){
+      
+      if(MAX_MEMBERS > 0){
+         MAX_MEMBERS -= 1;
+      }
+      else{
+         System.out.println("Oh no! all have your group memembers have perished! Better luck next time!");
+      }
+      
+    public int getMembers(){  // prints out the remaining members 
+      System.out.printf("Members Remaining: %d%n", MAX_MEMBERS);
+      return MAX_MEMBERS;
+    }   
+   }
+} 
