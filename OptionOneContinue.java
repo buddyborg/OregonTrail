@@ -1,3 +1,5 @@
+//Written by Paulina Cruz
+
 import java.util.Random;
 
 class OptionOneContinue {
