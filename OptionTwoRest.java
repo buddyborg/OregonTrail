@@ -1,9 +1,7 @@
+//Made by Shiana Venegas 
+
 import java.util.Random; 
 class OptionTwoRest {
-    //fields 
-   
-    
-    //constructors 
  
      //methods
      public static void optionTwo(UserStats stats){
@@ -14,24 +12,24 @@ class OptionTwoRest {
     
     
     
-    if (random_roll > 50) {
+     if (random_roll > 50) {
      
       stats.increaseMembers(); 
       System.out.println("You've chosen to rest for the day! You gain one member, but unfortunately you were attacked by bandits and one person was killed!"); 
       OptionTwoRest.enemyAttack(stats); 
     } 
     //Rest two 
-    else if (random_roll < 50) {
+       else if (random_roll < 50) {
     
-     System.out.println("You've chosen to rest for the day! You gain one person and you were not attacked by bandits!"); 
-     stats.increaseMembers();
-     }
-    }
+         System.out.println("You've chosen to rest for the day! You gain one person and you were not attacked by bandits!"); 
+         stats.increaseMembers();
+ }
+}
     
-    public static void enemyAttack(UserStats stats){
-      stats.decreaseMembers(); 
-    }
+        public static void enemyAttack(UserStats stats){
+        stats.decreaseMembers(); 
+ }
    
     
-  }
+ }
  
