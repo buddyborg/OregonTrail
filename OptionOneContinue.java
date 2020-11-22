@@ -17,11 +17,4 @@ class OptionOneContinue {
       System.out.println("You ran into bandits and lost a member!");
       stats.decreaseMembers();
     }
-    
-    /*public static void printGameStats(){
-      System.out.printf("Members Remaining: %d", UserStats.getMembers();
-      System.out.printf("Miles Journeyed: %d", UserStats.getMilesJourneyed();
-      
-    }
-    */
 } 
