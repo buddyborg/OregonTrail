@@ -26,19 +26,16 @@ public class UserStats{
    }
    
    public int getMilesLeft(){   // //prints out the remaining miles left
-      int milesLeft = userStats[1];
-      System.out.printf("Miles Remaining: %d%n", milesLeft); 
+      int milesLeft = userStats[1]; 
       return milesLeft;
    }
    
    public int getMilesJourneyed(){ // prints out the miles journeyed so far
-      System.out.printf("Miles Journeyed: %d%n", milesJourneyed);
       return milesJourneyed;
    }
      
    public int getMembers(){  // prints out the remaining members
       int members = userStats[0];       
-      System.out.printf("Members Remaining: %d%n", members);
       return members;
    }
    
