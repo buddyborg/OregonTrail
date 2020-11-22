@@ -25,25 +25,44 @@ public class Main {
            
             //This is where the bulk of the game will be played after choosing option 1
             //OptionOneContinue(); //force the game to choose option one to begin.
-            if (selection == 1){
+//            if (selection == 1){
+            boolean exit = false;
                do{
+                  // TODO: Print out current game state (members alive)
+                  System.out.printf("Members Remaining: %d%n", newUser.getMembers());
+                  System.out.printf("Miles Journeyed: %d%n", newUser.getMilesJourneyed());
+                  System.out.println();
+                  
                   System.out.println("Enter what you would like to do from the three options");
                   gameMenuPrompt();
+                  System.out.println();
+                  
+                  // Get selection
                   selection = input.nextInt();
               
                   switch (selection){
-                     case 1   :  //option one will go here
+                     case 1   : 
+                        OptionOneContinue.pick(newUser);
                                  break;
-                     case 2   :  //option two will go here
+                     case 2   :
+                     // rest, gaining 1 member
+                     // 50% chance of running into bandits, and losing a member
                                  break;
-                     case 3   :  //option three will go here
+                     case 3   :
+                        System.out.println("Goodbye");
+                        exit = true;
                                  break;
                      default  :  System.out.println("Enter a valid selection");
                                  break;
                   }
-               }while (selection != 3 || newUser.getMembers() != 0); //continues the loop until option 3 is chosen OR members is 0
-            }
+                  
+                  // TODO: check if game is ended
+                  // If newUser.getMilesLeft() <= 0 and newUser.getMembers() >= 1 - user wins
+                  // If newUser.getMembers() <= 0 - user loses
+               } while (!exit);
+           // }
       }
+
   
     private static void menuPrompt(){  //creates a menu option for the user to choose from written by David Monsen
         
@@ -70,5 +89,6 @@ public class Main {
        System.out.println("There are many treacherous pitfalls and dangerous bandits along the trail that will take away group members as you progress on the trail.");
        System.out.println("It is wise to rest when there are few group members remaining to strengthen your odds of success."); 
     }
+    
 
 } 

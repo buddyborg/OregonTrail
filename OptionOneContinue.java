@@ -1,4 +1,27 @@
+import java.util.Random;
+
 class OptionOneContinue {
-    public static void main(String[] args) {
+   public static boolean chance(int percentChance) {
+      Random random = new Random();
+      return random.nextInt(100) < percentChance;
+      
+   }
+   
+    public static void pick(UserStats stats) {
+      stats.increaseMilesJourneyed();
+      if (OptionOneContinue.chance(60)){
+         OptionOneContinue.runIntoBandits(stats);
+      }
+    } 
+    public static void runIntoBandits(UserStats stats){
+      System.out.println("You ran into bandits and lost a member!");
+      stats.decreaseMembers();
     }
+    
+    /*public static void printGameStats(){
+      System.out.printf("Members Remaining: %d", UserStats.getMembers();
+      System.out.printf("Miles Journeyed: %d", UserStats.getMilesJourneyed();
+      
+    }
+    */
 } 
