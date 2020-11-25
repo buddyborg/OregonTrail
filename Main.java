@@ -1,8 +1,9 @@
-import java.util.Scanner;
+import java.util.Scanner; //imports java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in); //creates new Scanner called input
         int selection;
         int[] stats = new int[2];
         UserStats newUser = new UserStats(stats);
@@ -29,13 +30,13 @@ public class Main {
             boolean exit = false;
                do{
                   //Print out current game stats written by Paulina Cruz
-                  System.out.printf("Members Remaining: %d%n", newUser.getMembers());
-                  System.out.printf("Miles Journeyed: %d%n", newUser.getMilesJourneyed());
-                  System.out.println();
+                  System.out.printf("Members Remaining: %d%n", newUser.getMembers()); //prints out members remaining
+                  System.out.printf("Miles Journeyed: %d%n", newUser.getMilesJourneyed()); //prints out miles journeyed
+                  System.out.println(); //prints out empty line for formatting
                   
-                  System.out.println("Enter what you would like to do from the three options");
-                  gameMenuPrompt();
-                  System.out.println();
+                  System.out.println("Enter what you would like to do from the three options"); //prints out prompt for user
+                  gameMenuPrompt(); //calls gameMenuPrompt();
+                  System.out.println(); //prints out empty line for formatting
                   
                   // Get selection
                   selection = input.nextInt();
@@ -56,7 +57,13 @@ public class Main {
                   }
                   
                   // TODO: check if game is ended
-                  // If newUser.getMilesLeft() <= 0 and newUser.getMembers() >= 1 - user wins
+                  // If newUser.getMilesLeft() <= 0 and newUser.getMembers() >= 1 - user wins MAKE WIN/LOSE SCREEN
+                  if (newUser.getMilesLeft() <= 0 && newUser.getMembers() >= 1) {
+                      victoryScreen();
+                  }
+                  else if (newUser.getMembers() <= 0) {
+                     losingScreen();
+                  }
                   // If newUser.getMembers() <= 0 - user loses
                } while (!exit);
            // }
@@ -90,5 +97,12 @@ public class Main {
        System.out.println();
     }
     
+    public static void victoryScreen() { //victory screen
+      System.out.println("Congratulations! You made it!"); 
+    }
+    
+    public static void losingScreen() { //losing screen
+      System.out.println("You have no members remaining!");
+    }
 
 } 
