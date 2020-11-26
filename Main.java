@@ -7,6 +7,7 @@ public class Main {
         int selection;
         int[] stats = new int[2];
         UserStats newUser = new UserStats(stats);
+        boolean exit = false;
         
         do {
            menuPrompt();
@@ -21,14 +22,14 @@ public class Main {
            }
            else if (selection == 0){
               System.out.println("Goodbye");
+              exit = true;
            }
          }while (selection != 0);
            
             //This is where the bulk of the game will be played after choosing option 1
             //OptionOneContinue(); //force the game to choose option one to begin.
             //if (selection == 1){
-            boolean exit = false;
-               do{
+               while (!exit){
                   //Print out current game stats written by Paulina Cruz
                   System.out.printf("Members Remaining: %d%n", newUser.getMembers()); //prints out members remaining
                   System.out.printf("Miles Journeyed: %d%n", newUser.getMilesJourneyed()); //prints out miles journeyed
@@ -60,12 +61,14 @@ public class Main {
                   // If newUser.getMilesLeft() <= 0 and newUser.getMembers() >= 1 - user wins MAKE WIN/LOSE SCREEN
                   if (newUser.getMilesLeft() <= 0 && newUser.getMembers() >= 1) {
                       victoryScreen();
+                      exit = true;
                   }
                   else if (newUser.getMembers() <= 0) {
                      losingScreen();
+                     exit = true;
                   }
                   // If newUser.getMembers() <= 0 - user loses
-               } while (!exit);
+               }
            // }
       }
 
