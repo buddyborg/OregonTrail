@@ -3,10 +3,10 @@ public class UserStats{
       
    //fields
   
-   private final int MAX_MEMBERS = 10;
-   private final int MAX_MILES = 100;
-   private int[] userStats = {MAX_MEMBERS, MAX_MILES}; // userStats[0] is members, userStats[1] is miles left which starts at 100
-   private int milesJourneyed = 0; // total milesJourneyed at the start is 0
+   private final static int MAX_MEMBERS = 10;
+   private final static int MAX_MILES = 100;
+   private static int[] userStats = {MAX_MEMBERS, MAX_MILES}; // userStats[0] is members, userStats[1] is miles left which starts at 100
+   private static int milesJourneyed = 0; // total milesJourneyed at the start is 0
    //constructors
    
    public UserStats(int[] userStats){
@@ -16,7 +16,7 @@ public class UserStats{
    
    //methods
    
-   public void increaseMilesJourneyed(){  // increases miles journeyd AND decreases miles left
+   public static void increaseMilesJourneyed(){  // increases miles journeyd AND decreases miles left
      if (milesJourneyed < MAX_MILES){ // increases the milesJourneyed by 10 each time it is called up to 100
         milesJourneyed += 10;   // will have to have a check in the code to verify if 100 has been reached
      }
@@ -39,7 +39,7 @@ public class UserStats{
       return members;
    }
    
-   public void increaseMembers(){
+   public static void increaseMembers(){
       if (userStats[0] < MAX_MEMBERS){ // if member is less than 10, increase by 1
          userStats[0] += 1;
       }
@@ -48,12 +48,12 @@ public class UserStats{
       }
    }
    
-   public void decreaseMembers(){ // decreases total members by 1 when called
+   public static void decreaseMembers(){ // decreases total members by 1 when called
       if (userStats[0] > 0){   // if total members is greater than 0 which it always should be for the game to continue
          userStats[0] -= 1;
       }
       else{
-         // FIX ME FOR WHEN MEMBERS = 0 GOES TO LOSINGSCREEN
+         Main.losingScreen();
       }
    }
 }
