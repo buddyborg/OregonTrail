@@ -1,4 +1,12 @@
-// class UserStats written by David Monsen
+/*********************************************************
+* Written by     : David Monsen                          *
+* Modified by    : David Monsen & Paulina Cruz           *
+* Date created   : 11/11/2020                            *
+* Dates modified : 11/21/2020 & 11/25/2020               *
+* 11/21/2020     : methods updated to return values      *
+* 11/25/2020     : made methods/variables static         *
+*********************************************************/
+
 public class UserStats{
       
    //fields
@@ -7,6 +15,7 @@ public class UserStats{
    private final static int MAX_MILES = 100;
    private static int[] userStats = {MAX_MEMBERS, MAX_MILES}; // userStats[0] is members, userStats[1] is miles left which starts at 100
    private static int milesJourneyed = 0; // total milesJourneyed at the start is 0
+   
    //constructors
    
    public UserStats(int[] userStats){
