@@ -11,7 +11,7 @@ public class UserStats{
       
    //fields
   
-   private final static int MAX_MEMBERS = 10;
+   public static int MAX_MEMBERS = 10;
    private final static int MAX_MILES = 100;
    private static int[] userStats = {MAX_MEMBERS, MAX_MILES}; // userStats[0] is members, userStats[1] is miles left which starts at 100
    private static int milesJourneyed = 0; // total milesJourneyed at the start is 0
@@ -51,18 +51,17 @@ public class UserStats{
    public static void increaseMembers(){
       if (userStats[0] < MAX_MEMBERS){ // if member is less than 10, increase by 1
          userStats[0] += 1;
+         System.out.println("You have gained a member in your travels.");
       }
       else{ // if tries to add a member beyond 10, it won't and will return this message
-         System.out.println("Your group is maxed out, unable to survive with additional group members.");
+         System.out.println("You found a travller on your journey. Unfortunately, your group is maxed out, " +
+                              "and is unable to survive with additional group members. You leave the traveller to his fate.");
       }
    }
    
    public static void decreaseMembers(){ // decreases total members by 1 when called
       if (userStats[0] > 0){   // if total members is greater than 0 which it always should be for the game to continue
          userStats[0] -= 1;
-      }
-      else{
-         Main.losingScreen();
       }
    }
 }
