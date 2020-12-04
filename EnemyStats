@@ -28,3 +28,35 @@ public class EnemyStats {
     }   
    
 } 
+
+// //Written by Reese Spaulding
+// import java.util.Random;
+// public class EnemyStats {
+//    //methods
+//    static int random_roll = (int) (Math.random() * 100) ;
+//    
+//    
+//    public static void enemyAttack(UserStats stats){
+//       random_roll = (int) (Math.random() * 100);
+//       if (random_roll > 30){
+//       
+//          if(stats.MAX_MEMBERS > 0){ //loses one member
+//             stats.decreaseMembers();
+//             System.out.println("One of your group members has died of dysentery"); 
+//          }
+//          else{
+//             System.out.println("Oh no! all have your group memembers have died of dysentery!");
+//          }
+//       }
+//       if (random_roll < 30){
+//         if(stats.MAX_MEMBERS > 0){ // increase number of members lost
+//            stats.decreaseMembers();
+//            stats.decreaseMembers();
+//            System.out.println("Two of your group members wandered off a cliff and were lost");
+//         }
+//         else{
+//            System.out.println("Oh no! all have your group memembers have wandered off a cliff and were lost!");
+//         }
+//       }
+//     }    
+// } 
