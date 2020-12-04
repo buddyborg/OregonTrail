@@ -10,7 +10,10 @@
 *  be modified at the end of the game to be able to input either Y or N                                        *
 *  11/29/2020, modified continue1 so it will now prompt the user if they want to continue after completing     *
 *  the game, put in a while statement to accomplish this task for line 23. modified indents so everything      *
-*  is correctly indented.                                                                               *
+*  is correctly indented.                                                                                      *
+*  12/4/2020, modified code to include EnemyStats in OptionOneContinue, OptionTwoRest. also modified Main to   *
+*  create a method UserStatus that Paulina had written in Main, David just moved it into its own method so     *
+*  that we can call it in the losing and victory screen.                                                       *
 ***************************************************************************************************************/
 
 import java.util.Scanner; //imports java.util.Scanner;
@@ -49,9 +52,7 @@ public class Main {
             // if (selection == 1){
          while (!exit){ // this section will end if boolean exit == true
             // Print out current game stats written by Paulina Cruz 
-            System.out.printf("Members Remaining: %d%n", newUser.getMembers()); // prints out members remaining
-            System.out.printf("Miles Journeyed: %d%n", newUser.getMilesJourneyed()); // prints out miles journeyed
-            System.out.println(); // prints out empty line for formatting
+            userStatus(newUser);
                 
             System.out.println("Enter what you would like to do from the three options"); // prints out prompt for user
             gameMenuPrompt(); // calls gameMenuPrompt();
@@ -67,7 +68,7 @@ public class Main {
                   case 2   :  OptionTwoRest.optionTwo(newUser);
                               count2++;
                               break;
-                  case 3   :  losingScreen();
+                  case 3   :  losingScreen(newUser);
                               exit = true;
                               break;
                   default  :  System.out.println("Enter a valid selection");
@@ -75,6 +76,7 @@ public class Main {
                }
             }
             if (count1 == 3){ // if option 1 is selected 3 times in a row, removes that option from being selected for one round
+               userStatus(newUser);
                System.out.println("Enter what you would like to do from the two options"); // prints out prompt for user
                gameMenuPrompt2(); // calls gameMenuPrompt();
                System.out.println(); // prints out empty line for formatting
@@ -85,7 +87,7 @@ public class Main {
                   case 2   :  OptionTwoRest.optionTwo(newUser);
                               count2++;
                               break;
-                  case 3   :  losingScreen();
+                  case 3   :  losingScreen(newUser);
                               exit = true;
                               break;
                   default  :  System.out.println("Enter a valid selection");
@@ -93,6 +95,7 @@ public class Main {
                }
             }
             if (count2 == 3){ // if option 2 is selected 3 times in a row, removes that option from being selected for one round
+               userStatus(newUser);
                System.out.println("Enter what you would like to do from the two options"); //prints out prompt for user
                gameMenuPrompt3(); //calls gameMenuPrompt();
                System.out.println(); //prints out empty line for formatting
@@ -100,10 +103,10 @@ public class Main {
                count2 = 0;
                     
                switch (selection){
-                  case 1   :  OptionTwoRest.optionTwo(newUser);
+                  case 1   :  OptionOneContinue.pick(newUser);
                               count2++;
                               break;
-                  case 3   :  losingScreen();
+                  case 3   :  losingScreen(newUser);
                               exit = true;
                               break;
                   default  :  System.out.println("Enter a valid selection");
@@ -112,13 +115,13 @@ public class Main {
             }
                  
             if (newUser.getMilesLeft() <= 0 && newUser.getMembers() >= 1) {
-               victoryScreen();
+               victoryScreen(newUser);
                exit = true;
                System.out.print("Do you wish to play again (Yes/No)? "); // prompts user if they want to replay the game
                continue1 = input.next(); // valid selection is either Yes or No
             }
             else if (newUser.getMembers() <= 0) {
-               losingScreen();
+               losingScreen(newUser);
                exit = true;
                System.out.print("Do you wish to play again (Yes/No)? "); // prompts user if they want to replay the game
                continue1 = input.next(); // valid selection is either Yes or No
@@ -168,11 +171,26 @@ public class Main {
        System.out.println();
     }
     
-    public static void victoryScreen() { // victory screen
-      System.out.println("Congratulations! You made it!");  
+    public static void victoryScreen(UserStats newUser) { // victory screen
+      userStatus(newUser);
+      System.out.printf("Congratulations! %d of your group made it! You are now free to set up a new society.%n" , newUser.getMembers()); 
+      System.out.println("You can begin by remembering those lost on the journey.");
+      System.out.println("Thought you never knew what spontaneous combustion was before this journey, you feel the urge to ");
+      System.out.println("research this strange phenomena to determine why travellers along this particular path were affected");
     }
     
-    public static void losingScreen() { // losing screen
-      System.out.println("You have no members remaining!");
+    public static void losingScreen(UserStats newUser) { // losing screen
+      userStatus(newUser);
+      System.out.println("Unfortunately, all of your group members have perished,");
+      System.out.println("either by wandering off a cliff, dying from dysentery, or being killed by bandits.");
+      System.out.println("A few may have even been lost by spontaneous combustion, something that appears");
+      System.out.println("to affect those travelling along this pathway. Strange");
+      System.out.println("So comes to a close the unfortunate tragedy of a group lost to the world on their journey to a new land");
+    }
+    
+    public static void userStatus(UserStats newUser){
+       System.out.printf("Members Remaining: %d%n", newUser.getMembers()); // prints out members remaining
+       System.out.printf("Miles Journeyed: %d%n", newUser.getMilesJourneyed()); // prints out miles journeyed
+       System.out.println(); // prints out empty line for formatting
     }
 } 
