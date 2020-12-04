@@ -1,20 +1,30 @@
+//Written by Reese Spaulding
+import java.util.Random;
 public class EnemyStats {
-   
+   //methods
    private int enemy;
    private int MAX_MEMBERS = 10;
-   
+   int random_roll = (int) (Math.random() * 100) ;
    public void enemyAttack(){
       
-      if(MAX_MEMBERS > 0){
-         MAX_MEMBERS -= 1;
-      }
-      else{
-         System.out.println("Oh no! all have your group memembers have perished! Better luck next time!");
-      }
+      if (random_roll > 30){
       
+         if(MAX_MEMBERS > 0){ //loses one member
+            MAX_MEMBERS -= 1;
+         }
+         else{
+            System.out.println("Oh no! all have your group memembers have perished! Better luck next time!");
+         }
+       }
+       if (random_roll < 30){
+         if(MAX_MEMBERS > 0){ // increase number of members lost
+            MAX_MEMBERS -= 2;
+         }
+       }
+     } 
     public int getMembers(){  // prints out the remaining members 
       System.out.printf("Members Remaining: %d%n", MAX_MEMBERS);
       return MAX_MEMBERS;
     }   
-   }
+   
 } 
