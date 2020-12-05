@@ -1,4 +1,4 @@
-/***************************************************************************************************************
+/****************************************************************************************************************
  *  ;;Block comments;;                                                                                          *
  *  ***Main was created by Paulina Cruz, David Monsen, Shiana Venegas, & Reese Spaulding on 11/09/2020***       *
  *  11/14/2020, main was modified, all user methods were added into main                                        *
@@ -11,12 +11,14 @@
  *  11/29/2020, modified continue1 so it will now prompt the user if they want to continue after completing     *
  *  the game, put in a while statement to accomplish this task for line 23. modified indents so everything      *
  *  is correctly indented.                                                                                      *
- *  12/4/2020, modified code to include EnemyStats in OptionOneContinue, OptionTwoRest. also modified Main to   *
+ *  12/4/2020, David modified to include EnemyStats in OptionOneContinue, OptionTwoRest. also modified Main to  *
  *  create a method UserStatus that Paulina had written in Main, David just moved it into its own method so     *
  *  that we can call it in the losing and victory screen.                                                       *
- *  changed variable names to proper variable naming conventions (make it a bit more descriptive)               *
+ *  Paulina changed variable names to proper variable naming conventions (make it a bit more descriptive)       *
  *  pulled the switch out into a new method called OptionChoicesSelection() and pass in each variable to avoid  *
-    repeating code                                                                                              *
+ *  repeating code                                                                                              *
+ *  12/5/2020, modified code so that when selecting option 3 it will display one losing screen and ask if the   *
+ *  the user would like to play again                                                                           *
  ***************************************************************************************************************/
 
 import java.util.Random;
@@ -67,23 +69,24 @@ public class Main {
                 shouldExit = optionChoicesSelection(userSelection, user);
 
                 if (user.getMilesLeft() <= 0 && user.getMembers() >= 1) {
-                    victoryScreen(user);
-                    shouldExit = true;
-                    playAgainInput = input.nextLine(); // valid userSelection is either Yes or No
-                 while(!playAgainInput.equalsIgnoreCase("No") && !playAgainInput.equalsIgnoreCase("Yes")) {
-                     System.out.print("Do you wish to play again (Yes/No)? "); // prompts user if they want to replay the game
-                     playAgainInput = input.nextLine();
-                     }
-                } else if (user.getMembers() <= 0) {
-                    losingScreen(user);
-                    shouldExit = true;
+                   victoryScreen(user);
+                   shouldExit = true;
+                   playAgainInput = input.nextLine(); // valid userSelection is either Yes or No
+                   
+                   while(!playAgainInput.equalsIgnoreCase("No") && !playAgainInput.equalsIgnoreCase("Yes")) {
+                      System.out.print("Do you wish to play again (Yes/No)? "); // prompts user if they want to replay the game
+                      playAgainInput = input.nextLine();
+                   }
+                } else if (user.getMembers() <= 0 || shouldExit == true) {
+                     OptionThreeGiveUp.losingScreen();
+                     shouldExit = true;
 
-                    playAgainInput = input.nextLine(); // valid userSelection is either Yes or No
-                  while(!playAgainInput.equalsIgnoreCase("No") && !playAgainInput.equalsIgnoreCase("Yes")) {
+                     playAgainInput = input.nextLine(); // valid userSelection is either Yes or No
+                     while(!playAgainInput.equalsIgnoreCase("No") && !playAgainInput.equalsIgnoreCase("Yes")) {
                         System.out.print("Do you wish to play again (Yes/No)? "); // prompts user if they want to replay the game
                         playAgainInput = input.nextLine();
                      }
-                }
+                  }
             }
         }
     }
@@ -100,7 +103,6 @@ public class Main {
             amountOfTimesForOption1 = 0; // sets amountOfTimesForOption1 = 0
             return false;
         } else if (userSelection == 3) { // if userSelection == 3, do this
-            losingScreen(user); // calls losingScreen()
             amountOfTimesForOption1 = 0; // sets amountOfTimesForOption1 = 0
             amountOfTimesForOption2 = 0; // sets amountOfTimesForOption2 = 0
             return true;
@@ -142,11 +144,6 @@ public class Main {
         System.out.println("You can begin by remembering those lost on the journey.");
         System.out.println("Thought you never knew what spontaneous combustion was before this journey, you feel the urge to ");
         System.out.println("research this strange phenomena to determine why travellers along this particular path were affected");
-    }
-
-    public static void losingScreen(UserStats newUser) { // losing screen
-        userStatus(newUser);
-        OptionThreeGiveUp.losingScreen();
     }
 
     public static void userStatus(UserStats newUser) {  // Print out current game stats written by Paulina Cruz
