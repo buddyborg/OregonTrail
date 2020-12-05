@@ -3,6 +3,8 @@
  * Modified by    : Paulina Cruz & David Monsen                                                          *
  * Date created   : 11/09/2020                                                                           *
  * Dates modified : 12/04/2020                                                                           *
+ * What does it do: This class handles OptionOneContinue. When user picks Option 1, Main calls pick()    *
+                    method in this class. It has 4 different possibilities depending on random chance.   *       
  * 12/04/2020     : Modifications by David Monsen                                                        *
                     - included EnemyStats class and methods                                              *
  * 12/04/2020     : Modifications by Paulina Cruz                                                        *

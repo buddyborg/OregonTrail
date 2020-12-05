@@ -14,8 +14,9 @@
  *  12/4/2020, modified code to include EnemyStats in OptionOneContinue, OptionTwoRest. also modified Main to   *
  *  create a method UserStatus that Paulina had written in Main, David just moved it into its own method so     *
  *  that we can call it in the losing and victory screen.                                                       *
- *  changed variable names to proper variable naming conventions (make it a bit more descriptive)             *
- *  pulled the switch out into a new method called OptionChoicesSelection() and pass in each variable to avoid repeating code                                                     *
+ *  changed variable names to proper variable naming conventions (make it a bit more descriptive)               *
+ *  pulled the switch out into a new method called OptionChoicesSelection() and pass in each variable to avoid  *
+    repeating code                                                                                              *
  ***************************************************************************************************************/
 
 import java.util.Random;
@@ -87,7 +88,7 @@ public class Main {
         }
     }
 
-    private static boolean optionChoicesSelection(int userSelection, UserStats user) { 
+    private static boolean optionChoicesSelection(int userSelection, UserStats user) { // optionChoicesSelection method written by Paulina Cruz
         if (userSelection == 1 && amountOfTimesForOption1 < 3) { // if userSelection ==1 and Option1 is chosen < 3 times, do this
             OptionOneContinue.pick(); // handles OptionOne
             amountOfTimesForOption1++; // adds 1 to counter for amountOfTimesForOption1
